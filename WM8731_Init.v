@@ -110,7 +110,7 @@ always begin
         // 线路输入静音
         SET_LIN_L: LUT_DATA <= 16'h0097;
         SET_LIN_R: LUT_DATA <= 16'h0297;
-        // MIC_IN 取消静音
+        // 线路输出取消静音
         SET_HEAD_L: LUT_DATA <= 16'h047B;
         SET_HEAD_R: LUT_DATA <= 16'h067B;
         /* 
@@ -121,8 +121,8 @@ always begin
         A_PATH_CTRL: LUT_DATA <= 16'h0815;
         // 数字音频路径控制
         D_PATH_CTRL: LUT_DATA <= 16'h0A00;
-        // 掉电控制
-        POWER_ON: LUT_DATA <= 16'h0C00;
+        // 掉电控制：线路输入掉电
+        POWER_ON: LUT_DATA <= 16'h0C01;
         /* 
         * 数字音频格式控制
         * 寄存器地址 00001110
