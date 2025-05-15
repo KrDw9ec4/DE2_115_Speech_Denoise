@@ -39,9 +39,13 @@ always @(posedge bclk) begin
     last_lrck <= lrck;
     last_lrck2 <= last_lrck;
 
-    // 新的一轮接收即将开始
-    if (lrck != last_lrck) begin
+    // 新一轮左声道音频数据接收即将开始
+    if (last_lrck && ~lrck) begin
         l_data_valid_reg <= 0;
+    end
+
+    // 新一轮右声道音频数据接收即将开始
+    if (~last_lrck && lrck) begin
         r_data_valid_reg <= 0;
     end
 
